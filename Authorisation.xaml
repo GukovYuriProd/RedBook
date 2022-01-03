@@ -152,5 +152,25 @@
                Foreground="AliceBlue"
                VerticalAlignment="Bottom"
                HorizontalAlignment="Right"/>
+        <Button Width="30"
+                Height="30"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="3"
+                BorderThickness="0"
+                Foreground="Transparent"
+                Background="Transparent"
+                Cursor="Hand"
+                Opacity="0"
+                Panel.ZIndex="1"
+                Click="OpenAdminsPanel"/>
+        <Image Source="/settings.png" 
+               Opacity="0.65"
+               Height="30"
+               Width="30"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Margin="3"
+               Panel.ZIndex="0"/>
     </Grid>
 </Window>

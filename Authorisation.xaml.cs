@@ -23,6 +23,18 @@ namespace RedBook
             InitializeComponent();
         }
 
+        private void OpenAdminsPanel(object sender, RoutedEventArgs e)
+        {
+            //cheker
+            if (LoginPageEnterLogin.Text == "gukov" && LoginPageEnterPassword.Password == "moderator")
+            {
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.Show();
+                this.Close();
+            }
+            
+        }
+
         private void LoginOnAuthPage(object sender, RoutedEventArgs e) //вход в приложение в выбранном режиме
         {
             if (ClassOfUser.Content.ToString() == "Ученик") //для входа ученика

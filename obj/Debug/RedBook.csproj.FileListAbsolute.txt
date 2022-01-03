@@ -44,3 +44,5 @@ D:\CodeProds\RedBook\obj\Debug\TeacherClient.g.cs
 D:\CodeProds\RedBook\obj\Debug\TeacherClient.baml
 D:\CodeProds\RedBook\obj\Debug\StudentClient.g.cs
 D:\CodeProds\RedBook\obj\Debug\StudentClient.baml
+D:\CodeProds\RedBook\obj\Debug\AdminPanel.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminPanel.baml

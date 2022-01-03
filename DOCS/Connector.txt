@@ -14,5 +14,6 @@ Authorisation block
 	SwitchFromTeacherToStudent - BUTTON_CLICK (left) in switcher
 	ClassOfUser - LABEL under the switcher
 	SwitchFromStudentToTeacher - BUTTON_CLICK (right) in switcher
+	OpenAdminsPanel - BUTTON_CLICK to open ADMINS_PANEL WINDOW
 }
 
