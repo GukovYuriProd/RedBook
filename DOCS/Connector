@@ -1,0 +1,18 @@
+//here will be all View outputs TO ViewModel Connections
+
+Colors: 
+#071739
+#274684
+#709fdc
+#b9d5fd
+
+Authorisation block 
+{
+	LoginPageEnterLogin - TEXTBOX_TEXT on "Authorisation" page. Box for login enter
+	LoginPageEnterPassword - TEXTBOX_TEXT on "Authorisation" page. Box for password enter
+	LoginOnAuthPage - BUTTON_CLICK on "Authorisation" page. Button for start login
+	SwitchFromTeacherToStudent - BUTTON_CLICK (left) in switcher
+	ClassOfUser - LABEL under the switcher
+	SwitchFromStudentToTeacher - BUTTON_CLICK (right) in switcher
+}
+

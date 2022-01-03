@@ -1,0 +1,156 @@
+﻿<Window x:Class="RedBook.Authorisation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RedBook"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Title="Авторизация" 
+        Height="580" 
+        Width="383">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF68A7F8"/>
+            <GradientStop Color="#F7709FDC" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <ControlTemplate x:Key = "ButtonTemplate" TargetType = "Button">
+
+            <Grid>
+                <Border x:Name="ButtonLogin"
+                        Background="#b9d5fd"
+                        Height="30"
+                        Width="100"
+                        CornerRadius="15"/>
+
+                <ContentPresenter Content = "{TemplateBinding Content}" 
+                                  HorizontalAlignment = "Center" 
+                                  VerticalAlignment = "Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property = "IsPressed" Value = "True">
+                    <Setter Property = "RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX = "0.9" ScaleY = "0.9" 
+                        CenterX = "0" CenterY = "0"  />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property = "RenderTransformOrigin" Value = "0.5,0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Red Book"
+                   FontSize="65"
+                   FontWeight="Light"
+                   Foreground="AliceBlue"
+                   HorizontalAlignment="Center"
+                   Margin="0,50,0,0"/>
+            <TextBlock Text="Система электронного контроля успеваемости"
+                       FontSize="23"
+                       FontWeight="Light"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Foreground="AliceBlue"/>
+            <Border Height="41"
+                    Width="320"
+                    Background="#b9d5fd"
+                    CornerRadius="18"
+                    Margin="0,50,0,0">
+                <TextBox x:Name="LoginPageEnterLogin"
+                         Background="Transparent"
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
+                         FontSize="21"
+                         VerticalAlignment="Center"
+                         Text="Введите логин"
+                         Opacity="0.6"
+                         Foreground="#071739"
+                         Margin="7,-1,7,0"
+                         GotFocus="LoginPageEnterLogin_GotFocus"
+                         LostFocus="LoginPageEnterLogin_LostFocus"/>
+            </Border>
+            <Border Height="41"
+                    Width="320"
+                    Background="#b9d5fd"
+                    CornerRadius="18"
+                    Margin="0,10,0,0">
+                <PasswordBox Background="Transparent"
+                         x:Name="LoginPageEnterPassword"
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
+                         FontSize="21"
+                         VerticalAlignment="Center"
+                         Password="12345678901"
+                         Opacity="0.6"
+                         Foreground="#071739"
+                         Margin="7,-1,7,0"
+                         GotFocus="LoginPageEnterPassword_GotFocus"
+                         LostFocus="LoginPageEnterPassword_LostFocus"/>
+            </Border>
+            <Button 
+                Template = "{StaticResource ButtonTemplate}" 
+                Content="LOGIN"
+                FontSize="21"
+                FontWeight="Light"
+                Foreground="#071739"
+                Margin="0,10,0,0"
+                Click="LoginOnAuthPage"/>
+            <Border Width="60"
+                    Height="30"
+                    Background="#b9d5fd"
+                    CornerRadius="15"
+                    Margin="0,30,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Border Width="26"
+                            Height="26"
+                            Background="#071739"
+                            CornerRadius="13"
+                            Opacity="0"
+                            Margin="2,0,0,0"
+                            x:Name="LeftPin">
+                        <Button Background="Transparent"
+                                BorderThickness="0"
+                                Opacity="0"
+                                Click="SwitchFromTeacherToStudent"/>
+                    </Border>
+                    <Border Width="26"
+                            Height="26"
+                            Background="#071739"
+                            CornerRadius="13"
+                            Opacity="1"
+                            Margin="4,0,0,0"
+                            x:Name="RightPin">
+                        <Button Background="Transparent"
+                                BorderThickness="0"
+                                Opacity="0"
+                                Click="SwitchFromStudentToTeacher"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <Border Width="120"
+                    Height="30"
+                    Background="#b9d5fd"
+                    CornerRadius="15"
+                    Margin="0,5,0,0">
+                <Label x:Name="ClassOfUser"
+                       FontSize="24"
+                       Content="Ученик"
+                       HorizontalAlignment="Center"
+                       FontWeight="Light"
+                       Margin="0,-7,0,0"/>
+            </Border>
+        </StackPanel>
+        <Label Content="v.0.0.1 beta"
+               Foreground="AliceBlue"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Right"/>
+    </Grid>
+</Window>
