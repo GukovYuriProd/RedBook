@@ -21,23 +21,35 @@ namespace RedBook.AdminClient
             InitializeComponent();
         }
 
-        private void ClickFirst(object sender, RoutedEventArgs e) //добавление Ученика в БД
+        private void ClickFirst(object sender, RoutedEventArgs e) //добавление Ученика в БД (лист)
         {
             FirstBTNOfMenu firstBTNOfMenu = new FirstBTNOfMenu();
             firstBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
             AdminWorkArea.Navigate(firstBTNOfMenu);
         }
-        private void ClickSecond(object sender, RoutedEventArgs e) //добавление Учителя в БД
+        private void ClickSecond(object sender, RoutedEventArgs e) //добавление Учителя в БД (лист)
         {
             SecondBTNOfMenu secondBTNOfMenu = new SecondBTNOfMenu();
             secondBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
             AdminWorkArea.Navigate(secondBTNOfMenu);
         }
-        private void ClickThird(object sender, RoutedEventArgs e) //добавление Класса в БД
+        private void ClickThird(object sender, RoutedEventArgs e) //добавление Класса в БД (лист)
         {
             ThirdBTNOfMenu thirdBTNOfMenu = new ThirdBTNOfMenu();
             thirdBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
             AdminWorkArea.Navigate(thirdBTNOfMenu);
+        }
+        private void ClickFour(object sender, RoutedEventArgs e) //добавление Дисциплины в БД (лист)
+        {
+            FourBTNOfMenu fourBTNOfMenu = new FourBTNOfMenu();
+            fourBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
+            AdminWorkArea.Navigate(fourBTNOfMenu);
+        }
+        private void ClickFive(object sender, RoutedEventArgs e) //добавление Типа работы в БД (лист)
+        {
+            FiveBTNOfMenu fiveBTNOfMenu = new FiveBTNOfMenu();
+            fiveBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
+            AdminWorkArea.Navigate(fiveBTNOfMenu);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

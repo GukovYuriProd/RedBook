@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 
 namespace RedBook.AdminClient
 {
-    public partial class ThirdBTNOfMenu : Page
+    public partial class FourBTNOfMenu : Page
     {
-        public ThirdBTNOfMenu()
+        public FourBTNOfMenu()
         {
             InitializeComponent();
         }
@@ -28,17 +28,15 @@ namespace RedBook.AdminClient
         {
             using (var db = new DBBinContext())
             {
-                if (EnterLevel.Text != "" &&
-                    EnterLitera.Text != "")
+                if (EnterNameOfDisc.Text != "" && EnterHours.Text != "")
                 {
                     try
                     {
-                        int level = Convert.ToInt32(EnterLevel.Text);
-                        String stroka = EnterLitera.Text;
-                        Class newClass = new Class();
-                        newClass.Level = level;
-                        newClass.Letter = stroka[0];
-                        db.Classe.Add(newClass);
+                        int Hours = Convert.ToInt32(EnterHours.Text);
+                        Discipline newDisc = new Discipline();
+                        newDisc.Name = EnterNameOfDisc.Text;
+                        newDisc.Hours = Hours;
+                        db.Discipline.Add(newDisc);
                         db.SaveChanges();
                     }
                     catch
@@ -60,8 +58,8 @@ namespace RedBook.AdminClient
 
         public void EraserEnters()
         {
-            EnterLevel.Text = "";
-            EnterLitera.Text = "";
+            EnterNameOfDisc.Text = "";
+            EnterHours.Text = "";
         }
     }
 }

@@ -16,29 +16,25 @@ using System.Windows.Shapes;
 
 namespace RedBook.AdminClient
 {
-    public partial class ThirdBTNOfMenu : Page
+    public partial class FiveBTNOfMenu : Page
     {
-        public ThirdBTNOfMenu()
+        public FiveBTNOfMenu()
         {
             InitializeComponent();
         }
-
         public Frame RemoteGetterFrame { get; set; }
-        private void AddNewClass(object sender, RoutedEventArgs e)
+
+        public void AddNewClass(object sender, RoutedEventArgs e)
         {
             using (var db = new DBBinContext())
             {
-                if (EnterLevel.Text != "" &&
-                    EnterLitera.Text != "")
+                if (EnterNameOfWork.Text != "")
                 {
                     try
                     {
-                        int level = Convert.ToInt32(EnterLevel.Text);
-                        String stroka = EnterLitera.Text;
-                        Class newClass = new Class();
-                        newClass.Level = level;
-                        newClass.Letter = stroka[0];
-                        db.Classe.Add(newClass);
+                        WorkType newWorkType = new WorkType();
+                        newWorkType.ClassOfWork = EnterNameOfWork.Text;
+                        db.WorkType.Add(newWorkType);
                         db.SaveChanges();
                     }
                     catch
@@ -60,8 +56,8 @@ namespace RedBook.AdminClient
 
         public void EraserEnters()
         {
-            EnterLevel.Text = "";
-            EnterLitera.Text = "";
+            EnterNameOfWork.Text = "";
         }
+
     }
 }

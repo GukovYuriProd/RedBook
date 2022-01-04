@@ -28,10 +28,10 @@ namespace RedBook.AdminClient
         {
             using (var db = new DBBinContext())
             {
-                if (EnterName.Text != null &&
-                    EnterLogin.Text != null &&
-                     EnterPassword.Text != null &&
-                     EnterAge.Text != null)
+                if (EnterName.Text != "" &&
+                    EnterLogin.Text != "" &&
+                     EnterPassword.Text != "" &&
+                     EnterAge.Text != "")
                 {
                     try
                     {

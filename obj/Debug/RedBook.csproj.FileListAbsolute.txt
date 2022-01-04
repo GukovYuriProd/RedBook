@@ -50,3 +50,6 @@ D:\CodeProds\RedBook\obj\Debug\AdminClient\SecondBTNOfMenu.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\SecondBTNOfMenu.baml
 D:\CodeProds\RedBook\obj\Debug\AdminClient\ThirdBTNOfMenu.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\ThirdBTNOfMenu.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FiveBTNOfMenu.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FiveBTNOfMenu.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FourBTNOfMenu.g.cs
