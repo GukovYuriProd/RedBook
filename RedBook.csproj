@@ -65,7 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdminPanel.xaml.cs">
+    <Compile Include="Admin\AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Class.cs" />
@@ -74,17 +74,17 @@
     <Compile Include="Model\Students.cs" />
     <Compile Include="Model\Teachers.cs" />
     <Compile Include="Model\WorkType.cs" />
-    <Compile Include="StudentClient.xaml.cs">
+    <Compile Include="Student\StudentClient.xaml.cs">
       <DependentUpon>StudentClient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherClient.xaml.cs">
+    <Compile Include="Teacher\TeacherClient.xaml.cs">
       <DependentUpon>TeacherClient.xaml</DependentUpon>
     </Compile>
-    <Page Include="AdminPanel.xaml">
+    <Page Include="Admin\AdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Authorisation.xaml">
+    <Page Include="Authorisation\Authorisation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -92,15 +92,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Authorisation.xaml.cs">
+    <Compile Include="Authorisation\Authorisation.xaml.cs">
       <DependentUpon>Authorisation.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StudentClient.xaml">
+    <Page Include="Student\StudentClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherClient.xaml">
+    <Page Include="Teacher\TeacherClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,8 +134,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="settings.png" />
+    <Resource Include="Pictures\settings.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

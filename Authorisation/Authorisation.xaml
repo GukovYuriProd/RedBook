@@ -18,7 +18,6 @@
     </Window.Background>
     <Window.Resources>
         <ControlTemplate x:Key = "ButtonTemplate" TargetType = "Button">
-
             <Grid>
                 <Border x:Name="ButtonLogin"
                         Background="#b9d5fd"
@@ -164,7 +163,7 @@
                 Opacity="0"
                 Panel.ZIndex="1"
                 Click="OpenAdminsPanel"/>
-        <Image Source="/settings.png" 
+        <Image Source="/Pictures/settings.png" 
                Opacity="0.65"
                Height="30"
                Width="30"
