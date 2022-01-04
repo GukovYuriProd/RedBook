@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\CodeProds\RedBook\App.xaml
-4-38754288
+22004102541
 
-161140118987
+14-1175100622
 161655970503
-Admin\AdminPanel.xaml;Authorisation\Authorisation.xaml;Student\StudentClient.xaml;Teacher\TeacherClient.xaml;
+AdminClient\MainWIndow.xaml;AuthWindow\AuthWindow.xaml;
 
 True
 

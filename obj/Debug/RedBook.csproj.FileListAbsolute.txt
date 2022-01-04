@@ -38,11 +38,7 @@ D:\CodeProds\RedBook\obj\Debug\RedBook.csproj.CoreCompileInputs.cache
 D:\CodeProds\RedBook\obj\Debug\RedBook.csproj.CopyComplete
 D:\CodeProds\RedBook\obj\Debug\RedBook.exe
 D:\CodeProds\RedBook\obj\Debug\RedBook.pdb
-D:\CodeProds\RedBook\obj\Debug\Admin\AdminPanel.g.cs
-D:\CodeProds\RedBook\obj\Debug\Authorisation\Authorisation.g.cs
-D:\CodeProds\RedBook\obj\Debug\Student\StudentClient.g.cs
-D:\CodeProds\RedBook\obj\Debug\Teacher\TeacherClient.g.cs
-D:\CodeProds\RedBook\obj\Debug\Admin\AdminPanel.baml
-D:\CodeProds\RedBook\obj\Debug\Authorisation\Authorisation.baml
-D:\CodeProds\RedBook\obj\Debug\Student\StudentClient.baml
-D:\CodeProds\RedBook\obj\Debug\Teacher\TeacherClient.baml
+D:\CodeProds\RedBook\obj\Debug\AuthWindow\AuthWindow.g.cs
+D:\CodeProds\RedBook\obj\Debug\AuthWindow\AuthWindow.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\MainWIndow.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\MainWIndow.baml

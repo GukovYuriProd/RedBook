@@ -65,8 +65,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Admin\AdminPanel.xaml.cs">
-      <DependentUpon>AdminPanel.xaml</DependentUpon>
+    <Compile Include="AdminClient\MainWIndow.xaml.cs">
+      <DependentUpon>MainWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthWindow\AuthWindow.xaml.cs">
+      <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Discipline.cs" />
@@ -74,33 +77,15 @@
     <Compile Include="Model\Students.cs" />
     <Compile Include="Model\Teachers.cs" />
     <Compile Include="Model\WorkType.cs" />
-    <Compile Include="Student\StudentClient.xaml.cs">
-      <DependentUpon>StudentClient.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher\TeacherClient.xaml.cs">
-      <DependentUpon>TeacherClient.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Admin\AdminPanel.xaml">
+    <Page Include="AdminClient\MainWIndow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Authorisation\Authorisation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Authorisation\Authorisation.xaml.cs">
-      <DependentUpon>Authorisation.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Student\StudentClient.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Teacher\TeacherClient.xaml">
+    <Page Include="AuthWindow\AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

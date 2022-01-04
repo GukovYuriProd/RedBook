@@ -12,14 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace RedBook
+namespace RedBook.AdminClient
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminPanel.xaml
-    /// </summary>
-    public partial class AdminPanel : Window
+    public partial class MainWIndow : Window
     {
-        public AdminPanel()
+        public MainWIndow()
         {
             InitializeComponent();
         }

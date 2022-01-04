@@ -1,4 +1,5 @@
-﻿using RedBook.Model;
+﻿using RedBook.AdminClient;
+using RedBook.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,13 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RedBook
+namespace RedBook.AuthWindow
 {
-    public partial class Authorisation : Window
+    public partial class AuthWindow : Window
     {
-        public Authorisation()
+        public AuthWindow()
         {
             InitializeComponent();
         }
@@ -28,11 +28,11 @@ namespace RedBook
             //cheker
             if (LoginPageEnterLogin.Text == "gukov" && LoginPageEnterPassword.Password == "moderator")
             {
-                AdminPanel adminPanel = new AdminPanel();
-                adminPanel.Show();
+                AdminClient.MainWIndow hueta = new MainWIndow();
+                hueta.Show();
                 this.Close();
             }
-            
+
         }
 
         private void LoginOnAuthPage(object sender, RoutedEventArgs e) //вход в приложение в выбранном режиме
@@ -40,14 +40,13 @@ namespace RedBook
             if (ClassOfUser.Content.ToString() == "Ученик") //для входа ученика
             {
                 //cheker
-                StudentClient studentclientlogin = new StudentClient();
-                studentclientlogin.Show();
 
-            } else //для входа учителя
+
+            }
+            else //для входа учителя
             {
                 //checker
-                TeacherClient teacherclientlogin = new TeacherClient();
-                teacherclientlogin.Show();
+
 
             }
         }
@@ -103,6 +102,5 @@ namespace RedBook
             }
         }
         //конец вторичных функций
-
     }
 }

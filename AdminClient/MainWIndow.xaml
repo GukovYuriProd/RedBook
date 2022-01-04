@@ -1,0 +1,65 @@
+﻿<Window x:Class="RedBook.AdminClient.MainWIndow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RedBook.AdminClient"
+        mc:Ignorable="d"
+        Title="Панель администратора RedBook" 
+        Height="900" 
+        Width="1600"
+        Background="#b9d5fd">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="MenuPanelBtn">
+            <Border x:Name="ButtonLogin"
+                        Background="#274684"
+                        Height="30"
+                        Width="{TemplateBinding Width}"
+                        CornerRadius="10">
+                <ContentControl Content = "{TemplateBinding Content}" 
+                                HorizontalAlignment = "Center" 
+                                VerticalAlignment = "Center"
+                                Foreground="AliceBlue"
+                                FontSize="18"
+                                FontWeight="Normal"
+                                Margin="0,0,0,2"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property = "IsPressed" Value = "True">
+                    <Setter Property = "RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX = "0.9" ScaleY = "0.9" 
+                        CenterX = "0" CenterY = "0"  />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property = "RenderTransformOrigin" Value = "0.5,0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="#709fdc">
+            <StackPanel Orientation="Horizontal" 
+                        x:Name="AdminsPanelStackPanel">
+                <Button Template="{StaticResource MenuPanelBtn}"
+                        Margin="5,0,0,0"
+                        Content="Поиск по ученикам"
+                        Width="173"/>
+                <Button Template="{StaticResource MenuPanelBtn}"
+                        Margin="5,0,0,0"
+                        Content="Поиск по классу"
+                        Width="148"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Frame x:Name="AdminWorkArea"/>
+        </Grid>
+    </Grid>
+</Window>
+
