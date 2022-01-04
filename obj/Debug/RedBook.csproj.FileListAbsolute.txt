@@ -42,3 +42,7 @@ D:\CodeProds\RedBook\obj\Debug\AuthWindow\AuthWindow.g.cs
 D:\CodeProds\RedBook\obj\Debug\AuthWindow\AuthWindow.baml
 D:\CodeProds\RedBook\obj\Debug\AdminClient\MainWIndow.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\MainWIndow.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FirstBTNOfMenu.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FirstBTNOfMenu.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\defaultEmpty.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\defaultEmpty.baml

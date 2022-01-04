@@ -65,6 +65,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminClient\defaultEmpty.xaml.cs">
+      <DependentUpon>defaultEmpty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminClient\FirstBTNOfMenu.xaml.cs">
+      <DependentUpon>FirstBTNOfMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminClient\MainWIndow.xaml.cs">
       <DependentUpon>MainWIndow.xaml</DependentUpon>
     </Compile>
@@ -77,6 +83,14 @@
     <Compile Include="Model\Students.cs" />
     <Compile Include="Model\Teachers.cs" />
     <Compile Include="Model\WorkType.cs" />
+    <Page Include="AdminClient\defaultEmpty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminClient\FirstBTNOfMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminClient\MainWIndow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,7 +135,12 @@
   <ItemGroup>
     <Resource Include="Pictures\settings.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pictures\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

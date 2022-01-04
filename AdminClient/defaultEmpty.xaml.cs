@@ -10,22 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace RedBook.AdminClient
 {
-    public partial class MainWIndow : Window
+    /// <summary>
+    /// Логика взаимодействия для defaultEmpty.xaml
+    /// </summary>
+    public partial class defaultEmpty : Page
     {
-        public MainWIndow()
+        public defaultEmpty()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            FirstBTNOfMenu firstBTNOfMenu = new FirstBTNOfMenu();
-            firstBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
-            AdminWorkArea.Navigate(firstBTNOfMenu);
         }
     }
 }

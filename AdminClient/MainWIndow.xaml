@@ -49,16 +49,36 @@
                         x:Name="AdminsPanelStackPanel">
                 <Button Template="{StaticResource MenuPanelBtn}"
                         Margin="5,0,0,0"
-                        Content="Поиск по ученикам"
-                        Width="173"/>
+                        Content="Добавить ученика"
+                        Width="173"
+                        Click="Button_Click"/>
                 <Button Template="{StaticResource MenuPanelBtn}"
                         Margin="5,0,0,0"
-                        Content="Поиск по классу"
-                        Width="148"/>
+                        Content="Добавить учителя"
+                        Width="173"
+                        Click="Button_Click"/>
+                <Button Template="{StaticResource MenuPanelBtn}"
+                        Margin="5,0,0,0"
+                        Content="Добавить класс"
+                        Width="173"
+                        Click="Button_Click"/>
+                <Button Template="{StaticResource MenuPanelBtn}"
+                        Margin="5,0,0,0"
+                        Content="Добавить предмет"
+                        Width="173"
+                        Click="Button_Click"/>
+                <Button Template="{StaticResource MenuPanelBtn}"
+                        Margin="5,0,0,0"
+                        Content="Добавить виды работ"
+                        Width="193"
+                        Click="Button_Click"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <Frame x:Name="AdminWorkArea"/>
+            <Frame x:Name="AdminWorkArea" 
+                   Height="auto"
+                   Width="auto"
+                   NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>
