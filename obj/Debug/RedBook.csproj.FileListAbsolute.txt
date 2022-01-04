@@ -46,3 +46,7 @@ D:\CodeProds\RedBook\obj\Debug\AdminClient\FirstBTNOfMenu.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\FirstBTNOfMenu.baml
 D:\CodeProds\RedBook\obj\Debug\AdminClient\defaultEmpty.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\defaultEmpty.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\SecondBTNOfMenu.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\SecondBTNOfMenu.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\ThirdBTNOfMenu.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\ThirdBTNOfMenu.baml

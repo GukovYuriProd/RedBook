@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:RedBook.AdminClient"
         mc:Ignorable="d"
         Title="Панель администратора RedBook" 
-        Height="900" 
-        Width="1600"
+        Height="600" 
+        Width="1000"
         Background="#b9d5fd">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="MenuPanelBtn">
@@ -51,17 +51,17 @@
                         Margin="5,0,0,0"
                         Content="Добавить ученика"
                         Width="173"
-                        Click="Button_Click"/>
+                        Click="ClickFirst"/>
                 <Button Template="{StaticResource MenuPanelBtn}"
                         Margin="5,0,0,0"
                         Content="Добавить учителя"
                         Width="173"
-                        Click="Button_Click"/>
+                        Click="ClickSecond"/>
                 <Button Template="{StaticResource MenuPanelBtn}"
                         Margin="5,0,0,0"
                         Content="Добавить класс"
                         Width="173"
-                        Click="Button_Click"/>
+                        Click="ClickThird"/>
                 <Button Template="{StaticResource MenuPanelBtn}"
                         Margin="5,0,0,0"
                         Content="Добавить предмет"
@@ -82,4 +82,3 @@
         </Grid>
     </Grid>
 </Window>
-

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\CodeProds\RedBook\App.xaml
-4896737231
+6823023364
 
-161729361624
+18-1813961313
 161655970503
-AdminClient\defaultEmpty.xaml;AdminClient\FirstBTNOfMenu.xaml;AdminClient\MainWIndow.xaml;AuthWindow\AuthWindow.xaml;
+AdminClient\defaultEmpty.xaml;AdminClient\FirstBTNOfMenu.xaml;AdminClient\MainWIndow.xaml;AdminClient\SecondBTNOfMenu.xaml;AdminClient\ThirdBTNOfMenu.xaml;AuthWindow\AuthWindow.xaml;
 
-False
+True
 

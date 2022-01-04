@@ -21,11 +21,27 @@ namespace RedBook.AdminClient
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ClickFirst(object sender, RoutedEventArgs e) //добавление Ученика в БД
         {
             FirstBTNOfMenu firstBTNOfMenu = new FirstBTNOfMenu();
             firstBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
             AdminWorkArea.Navigate(firstBTNOfMenu);
+        }
+        private void ClickSecond(object sender, RoutedEventArgs e) //добавление Учителя в БД
+        {
+            SecondBTNOfMenu secondBTNOfMenu = new SecondBTNOfMenu();
+            secondBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
+            AdminWorkArea.Navigate(secondBTNOfMenu);
+        }
+        private void ClickThird(object sender, RoutedEventArgs e) //добавление Класса в БД
+        {
+            ThirdBTNOfMenu thirdBTNOfMenu = new ThirdBTNOfMenu();
+            thirdBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
+            AdminWorkArea.Navigate(thirdBTNOfMenu);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Ведуться технические работы");
         }
     }
 }

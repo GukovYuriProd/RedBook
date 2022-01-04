@@ -1,4 +1,4 @@
-﻿<Page x:Class="RedBook.AdminClient.FirstBTNOfMenu"
+﻿<Page x:Class="RedBook.AdminClient.SecondBTNOfMenu"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -62,7 +62,7 @@
                                 Margin="0,5,0,0">
                         <Label FontSize="18"
                                FontWeight="Normal"
-                               Content="Введите ФИО"
+                               Content="ФИО Учителя"
                                Width="146"
                        Foreground="#071739"/>
                         <Border Height="35"
@@ -148,7 +148,7 @@
                             Width="45"
                             Height="50"
                             HorizontalAlignment="Right"
-                            Click="AddNewStudent"/>
+                            Click="AddNewTeacher"/>
                 <Button Template="{StaticResource ExitButton}"
                             Margin="25,170,0,20"
                             Width="45"

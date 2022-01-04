@@ -74,6 +74,12 @@
     <Compile Include="AdminClient\MainWIndow.xaml.cs">
       <DependentUpon>MainWIndow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminClient\SecondBTNOfMenu.xaml.cs">
+      <DependentUpon>SecondBTNOfMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminClient\ThirdBTNOfMenu.xaml.cs">
+      <DependentUpon>ThirdBTNOfMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AuthWindow\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
@@ -99,6 +105,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="AdminClient\SecondBTNOfMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminClient\ThirdBTNOfMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AuthWindow\AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\export.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
