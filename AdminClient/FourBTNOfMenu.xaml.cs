@@ -24,7 +24,7 @@ namespace RedBook.AdminClient
         }
 
         public Frame RemoteGetterFrame { get; set; }
-        private void AddNewClass(object sender, RoutedEventArgs e)
+        private void AddNewDisc(object sender, RoutedEventArgs e)
         {
             using (var db = new DBBinContext())
             {
