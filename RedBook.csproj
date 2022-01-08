@@ -74,6 +74,9 @@
     <Compile Include="AdminClient\FiveBTNOfMenu.xaml.cs">
       <DependentUpon>FiveBTNOfMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminClient\FormateNewCLass.xaml.cs">
+      <DependentUpon>FormateNewCLass.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminClient\FourBTNOfMenu.xaml.cs">
       <DependentUpon>FourBTNOfMenu.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminClient\FiveBTNOfMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminClient\FormateNewCLass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

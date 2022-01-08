@@ -54,3 +54,5 @@ D:\CodeProds\RedBook\obj\Debug\AdminClient\FiveBTNOfMenu.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\FiveBTNOfMenu.baml
 D:\CodeProds\RedBook\obj\Debug\AdminClient\FourBTNOfMenu.g.cs
 D:\CodeProds\RedBook\obj\Debug\AdminClient\FourBTNOfMenu.baml
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FormateNewCLass.g.cs
+D:\CodeProds\RedBook\obj\Debug\AdminClient\FormateNewCLass.baml

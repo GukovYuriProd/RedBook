@@ -21,6 +21,14 @@ namespace RedBook.AdminClient
             InitializeComponent();
         }
 
+        public void FormateNewClass (object sender, RoutedEventArgs e)
+        {
+            FormateNewCLass formateNewClass = new FormateNewCLass();
+            formateNewClass.RemoteGetterFrame = AdminWorkArea;
+            AdminWorkArea.Navigate(formateNewClass);
+        }
+
+        //5 функций для первой линии кнопок. Добавление в бд самих юнитов
         private void ClickFirst(object sender, RoutedEventArgs e) //добавление Ученика в БД (лист)
         {
             FirstBTNOfMenu firstBTNOfMenu = new FirstBTNOfMenu();
@@ -50,10 +58,6 @@ namespace RedBook.AdminClient
             FiveBTNOfMenu fiveBTNOfMenu = new FiveBTNOfMenu();
             fiveBTNOfMenu.RemoteGetterFrame = AdminWorkArea;
             AdminWorkArea.Navigate(fiveBTNOfMenu);
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Ведуться технические работы");
         }
     }
 }

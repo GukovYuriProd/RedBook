@@ -40,13 +40,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"
               Background="#709fdc">
             <StackPanel Orientation="Horizontal" 
-                        x:Name="AdminsPanelStackPanel">
+                        x:Name="AdminsPanelStackPanel1">
                 <Button Template="{StaticResource MenuPanelBtn}"
                         Margin="5,0,0,0"
                         Content="Добавить ученика"
@@ -74,7 +75,18 @@
                         Click="ClickFive"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"
+              Background="#709fdc">
+            <StackPanel Orientation="Horizontal"
+                        x:Name="AdminsPanelStackPanel2">
+                <Button Template="{StaticResource MenuPanelBtn}"
+                        Margin="5,0,0,0"
+                        Content="Сформировать класс"
+                        Width="183"
+                        Click="FormateNewClass"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
             <Frame x:Name="AdminWorkArea" 
                    Height="auto"
                    Width="auto"
