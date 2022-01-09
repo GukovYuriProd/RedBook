@@ -21,25 +21,23 @@ namespace RedBook.AdminClient
         public FormateNewCLass()
         {
             InitializeComponent();
+            using (var db = new DBBinContext())
+            {
+                List<Class> classes = db.Classe.ToList();
+                List<string> levels = new List<string>();
+                foreach (var classi in classes)
+                {
+                    levels.Add(classi.Level.ToString());
+                }
+                ClassCheck.ItemsSource = levels;
+            }
         }
 
         public Frame RemoteGetterFrame { get; set; }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ClassCheck_DropDownClosed(object sender, EventArgs e)
         {
-            using (var db = new DBBinContext())
-            {
-                List<Class> listClass = new List<Class>();
-                List<string> listString = new List<string>();
-                listClass = db.Classe.ToList();
-                foreach (var clas in listClass)
-                {
-                    listString.Add(clas.Level.ToString() + " " + clas.Letter.ToString());
-                }
-                ComboBoxClasses.ItemsSource = listString;
-
-
-            }
+            LabelTOP.Content = "Формирование " + ClassCheck.SelectedItem.ToString() + " класса";
         }
     }
 }
