@@ -25,7 +25,8 @@
                        x:Name="LabelTOP"/>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical"
-                                Height="auto">
+                                Height="auto"
+                                Width="200">
                         <ComboBox x:Name="ClassCheck"
                                  Margin="20,45,0,0"
                                  Width="40"
@@ -34,10 +35,25 @@
                                  FontSize="17"
                                  DropDownClosed="ClassCheck_DropDownClosed">
                         </ComboBox>
+                        <ListBox x:Name="ChekedStudents"
+                                 FontSize="17"
+                                 Height="auto"/>
+                        <Button Height="30"
+                                Content="CHECK"
+                                Click="Check_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical"
                                 Height="auto"
-                                Margin="0,45,0,0">
+                                Margin="0,45,0,0"
+                                Width="200">
+                        <TextBox x:Name="Search"
+                                 FontSize="17"
+                                 />
+
+                        <StackPanel Orientation="Vertical"
+                                    Height="320"
+                                    x:Name="SearchResults">
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </Grid>
