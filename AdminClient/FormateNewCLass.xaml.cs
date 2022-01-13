@@ -53,22 +53,23 @@ namespace RedBook.AdminClient
         public void AddStudentToSearch(string StudentName)
         {
             Button BackButton = new Button();
-            BackButton.Width = 184;
-            BackButton.Height = 34;
+            BackButton.Width = 254;
+            BackButton.Height = 30;
             BackButton.Background = Brushes.Transparent;
-            BackButton.Opacity = 1;
             BackButton.BorderThickness = new Thickness(0);
             BackButton.Click += ClickOnStudent;
             BackButton.FontSize = 17;
-            BackButton.Content = StudentName;
+            BackButton.Content = " " + StudentName;
+            BackButton.VerticalAlignment = VerticalAlignment.Center;
+            BackButton.HorizontalContentAlignment = HorizontalAlignment.Left;
             Students.Add(BackButton);
 
             Border Obolochka = new Border();
-            Obolochka.BorderThickness = new Thickness(4);
+            Obolochka.BorderThickness = new Thickness(2);
             Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
-            Obolochka.Width = 180;
+            Obolochka.Width = 250;
             Obolochka.Height = 30;
-            Obolochka.CornerRadius = new CornerRadius(11);
+            Obolochka.CornerRadius = new CornerRadius(6);
             Obolochka.Child = BackButton;
 
             var ouput = Obolochka;

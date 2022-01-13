@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RedBook.AdminClient"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="500"
+      d:DesignHeight="420" d:DesignWidth="520"
       Title="FormateNewCLass">
     <Grid>
         <Border Height="400"
-                Width="400"
+                Width="500"
                 Background="AliceBlue"
                 CornerRadius="15"
                 Margin="10"
@@ -44,16 +44,21 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical"
                                 Height="auto"
-                                Margin="0,45,0,0"
-                                Width="200">
+                                Margin="15,45,0,0"
+                                Width="auto">
                         <TextBox x:Name="Search"
                                  FontSize="17"
-                                 />
-
-                        <StackPanel Orientation="Vertical"
-                                    Height="320"
+                                 Width="270"
+                                 HorizontalAlignment="Center"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                                      CanContentScroll="True"
+                                      Margin="0,15,0,0">
+                            <StackPanel Orientation="Vertical"
+                                    Height="290"
+                                        Width="250"
                                     x:Name="SearchResults">
-                        </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
                     </StackPanel>
                 </StackPanel>
             </Grid>
