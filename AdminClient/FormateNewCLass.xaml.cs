@@ -49,7 +49,7 @@ namespace RedBook.AdminClient
             AddStudentToSearch(Search.Text);
         }
         public string Something = null;
-        public List<Button> Students = new List<Button>();
+        public List<string> ActualStudents = new List<string>();
         public void AddStudentToSearch(string StudentName)
         {
             Button BackButton = new Button();
@@ -62,7 +62,6 @@ namespace RedBook.AdminClient
             BackButton.Content = " " + StudentName;
             BackButton.VerticalAlignment = VerticalAlignment.Center;
             BackButton.HorizontalContentAlignment = HorizontalAlignment.Left;
-            Students.Add(BackButton);
 
             Border Obolochka = new Border();
             Obolochka.BorderThickness = new Thickness(2);
@@ -77,7 +76,8 @@ namespace RedBook.AdminClient
         }
         public void ClickOnStudent (object sender, RoutedEventArgs e)
         {
-            MessageBox.Show((sender as Button).Content.ToString());
+            ActualStudents.Add((sender as Button).Content.ToString());
+            ChekedStudents.Items.Add((sender as Button).Content.ToString());
         }
     }
 }
