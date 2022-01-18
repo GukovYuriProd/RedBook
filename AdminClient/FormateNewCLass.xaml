@@ -7,6 +7,34 @@
       mc:Ignorable="d" 
       d:DesignHeight="420" d:DesignWidth="1020"
       Title="FormateNewCLass">
+    <Page.Resources>
+        <ControlTemplate TargetType="Button" x:Key="ConfigPageBtn">
+            <Border x:Name="ButtonLogin"
+                        Background="#274684"
+                        Height="30"
+                        Width="{TemplateBinding Width}"
+                        CornerRadius="13">
+                <ContentControl Content = "{TemplateBinding Content}" 
+                                HorizontalAlignment = "Center" 
+                                VerticalAlignment = "Center"
+                                Foreground="AliceBlue"
+                                FontSize="19"
+                                FontWeight="Normal"
+                                Margin="0,0,0,2"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property = "IsPressed" Value = "True">
+                    <Setter Property = "RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX = "0.9" ScaleY = "0.9" 
+                        CenterX = "0" CenterY = "0"  />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property = "RenderTransformOrigin" Value = "0.5,0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Page.Resources> 
     <Grid>
         <Border Height="400"
                 Width="1000"
@@ -19,63 +47,140 @@
                 <Label Content="Сформировать класс"
                        FontSize="20"
                        FontWeight="Medium"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Right"
                        Height="auto"
+                       Width="auto"
                        VerticalAlignment="Top"
-                       x:Name="LabelTOP"/>
-                <StackPanel Orientation="Horizontal">
-                    
-                    <StackPanel Orientation="Vertical"
-                                Height="auto"
-                                Width="270">
-                        <StackPanel Orientation="Horizontal">
-                            <Label FontSize="20"
+                       x:Name="LabelTOP"
+                       Margin="0,0,10,0"/>
+                <StackPanel Orientation="Horizontal"
+                            Height="40"
+                            Width="210"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="10,0,0,0">
+                    <Label FontSize="20"
                                    FontWeight="Medium"
                                    HorizontalAlignment="Center"
                                    Height="auto"
                                    VerticalAlignment="Top"
-                                   Margin="10,45,0,0"
                                    Content="Выберите класс"/>
-                            <ComboBox x:Name="ClassCheck"
-                                 Margin="5,45,0,0"
+                    <ComboBox x:Name="ClassCheck"
+                                 Margin="5,0,0,0"
                                  Width="40"
-                                 Height="auto"
+                                 Height="25"
                                  FontWeight="Medium"
                                  FontSize="17"
                                  DropDownClosed="ClassCheck_DropDownClosed">
-                            </ComboBox>
-                        </StackPanel>
-                        <ListBox x:Name="ChekedStudents"
-                                 FontSize="15"
-                                 FontWeight="Light"
-                                 Height="auto"
-                                 MaxHeight="240"
-                                 MinHeight="30"
-                                 Margin="10,0,0,0"
-                                 Background="Transparent"
-                                 BorderThickness="0"/>
-                        <Button Height="30"
-                                Content="CHECK"
-                                Click="Check_Click"/>
-                    </StackPanel>
-                    
-                    <StackPanel Orientation="Vertical"
+                    </ComboBox>
+                </StackPanel>
+                <Button x:Name="ConfigurateClass" 
+                        Template="{StaticResource ConfigPageBtn}"
+                        Width="205"
+                        Content="Сформировать класс"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="10"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical"
                                 Height="auto"
                                 Margin="15,45,0,0"
                                 Width="auto">
-                        <TextBox x:Name="Search"
-                                 FontSize="17"
-                                 Width="270"
-                                 HorizontalAlignment="Center"/>
-                        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                            <Border Height="30"
+                                Width="330"
+                                Background="#b9d5fd"
+                                CornerRadius="10">
+                                <TextBox x:Name="Search"
+                                     Background="Transparent"
+                                     BorderBrush="Transparent"
+                                     BorderThickness="0"
+                                     FontSize="17"
+                                     VerticalAlignment="Center"
+                                     Foreground="#071739"
+                                     Margin="7,-1,7,0"
+                                     TextChanged="Search_TextChanged"
+                                     LostFocus="Search_LostFocus"
+                                     GotFocus="Search_GotFocus"
+                                     Text="Введите имя ученика"
+                                     Opacity="0.7"/>
+                            </Border>
+                            <ScrollViewer VerticalScrollBarVisibility="Visible"
                                       CanContentScroll="True"
                                       Margin="0,15,0,0">
-                            <StackPanel Orientation="Vertical"
-                                    Height="290"
-                                        Width="250"
-                                    x:Name="SearchResults">
-                            </StackPanel>
-                        </ScrollViewer>
+                                <StackPanel Orientation="Vertical"
+                                        Height="290"
+                                        Width="310"
+                                        x:Name="SearchResults">
+                                </StackPanel>
+                            </ScrollViewer>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="10,45,0,0">
+                            <Border Background="#709fdc"
+                                    Height="20"
+                                    Width="20"
+                                    CornerRadius="7"
+                                    Margin="0,0,0,5"
+                                    x:Name="SwitchToStudentSearch"
+                                    BorderThickness="2" 
+                                    BorderBrush="#071739">
+                                <Grid>
+                                    <Button Opacity="0" 
+                                            Click="StudentSearchSelected"
+                                            Panel.ZIndex="1"
+                                            ToolTip="Сменить режим на поиск учеников"/>
+                                    <TextBlock FontSize="18"
+                                           Text="У"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Panel.ZIndex="0"/>
+                                </Grid>
+                            </Border>
+                            <Border Background="#709fdc"
+                                    Height="20"
+                                    Width="20"
+                                    CornerRadius="7"
+                                    Margin="0,0,0,5"
+                                    x:Name="SwitchToTeacherSearch"
+                                    BorderBrush="#071739">
+                                <Grid>
+                                    <Button Opacity="0" 
+                                            Click="TeacherSearchSelected"
+                                            Panel.ZIndex="1"
+                                            ToolTip="Сменить режим на поиск преподавателей"/>
+                                    <TextBlock FontSize="18"
+                                           Text="П"   
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Panel.ZIndex="0"/>
+                                </Grid>
+                            </Border>
+                            <Border Background="#709fdc"
+                                    Height="20"
+                                    Width="20"
+                                    CornerRadius="7"
+                                    x:Name="SwitchToDisciplineSearch"
+                                    BorderBrush="#071739">
+                                <Grid>
+                                    <Button Opacity="0" 
+                                            Click="DisciplineSearchSelected"
+                                            Panel.ZIndex="1"
+                                            ToolTip="Сменить режим на поиск дисциплин"/>
+                                    <TextBlock FontSize="18"
+                                           Text="Д"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Margin="0,-5,0,0"
+                                           Panel.ZIndex="0"/>
+                                </Grid>
+                            </Border>
+                            
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                                Margin="15,0">
+                        
                     </StackPanel>
                 </StackPanel>
             </Grid>

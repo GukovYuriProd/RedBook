@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:RedBook.AdminClient"
         mc:Ignorable="d"
         Title="Панель администратора RedBook" 
-        Height="600" 
-        Width="1000"
+        Height="700" 
+        Width="auto"
         Background="#b9d5fd">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="MenuPanelBtn">

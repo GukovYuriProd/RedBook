@@ -35,49 +35,157 @@ namespace RedBook.AdminClient
 
         public Frame RemoteGetterFrame { get; set; }
 
+        //Editing the Text label on the top
         private void ClassCheck_DropDownClosed(object sender, EventArgs e)
         {
             if (ClassCheck.SelectedItem != null)
             {
                 LabelTOP.Content = "Формирование " + ClassCheck.SelectedItem.ToString() + " класса";
             }
-
         }
+        //End
 
-        private void Check_Click(object sender, RoutedEventArgs e)
+        //Scripts for Search line
+        private int SearchStatus = 1;
+        private void Search_LostFocus(object sender, RoutedEventArgs e)
         {
-            AddStudentToSearch(Search.Text);
+            if (Search.Text == "")
+                switch (SearchStatus)
+                {
+                    case 1:
+                        Search.Opacity = 0.7;
+                        Search.Text = "Введите имя ученика";
+                        break;
+                    case 2:
+                        Search.Opacity = 0.7;
+                        Search.Text = "Введите имя преподавателя";
+                        break;
+                    case 3:
+                        Search.Opacity = 0.7;
+                        Search.Text = "Введите дисциплину";
+                        break;
+                }
         }
-        public string Something = null;
-        public List<string> ActualStudents = new List<string>();
-        public void AddStudentToSearch(string StudentName)
+        private void Search_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (Search.Text == "Введите имя ученика" ||
+                Search.Text == "Введите имя преподавателя" ||
+                Search.Text == "Введите дисциплину")
+            {
+                Search.Opacity = 1;
+                Search.Text = "";
+            }
+        }
+
+        private int? CharCounter;
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CharCounter = Search.Text.Length;
+            if (CharCounter > 3)
+            {
+                //Here will be a "case" for "switch search option"
+                if (SearchResults != null)
+                    SearchResults.Children.Clear();
+                using (var db = new DBBinContext())
+                {
+                    switch (SearchStatus)
+                    {
+                        case 1:
+                            var selectedStudents = db.Students.Where(x => x.Name.Contains(Search.Text));
+                            foreach (var user in selectedStudents)
+                            {
+                                AddInfoToSearch(user.Name);
+                            }
+                            break;
+                        case 2:
+                            var selectedTeachers = db.Teachers.Where(x => x.Name.Contains(Search.Text));
+                            foreach (var user in selectedTeachers)
+                            {
+                                AddInfoToSearch(user.Name);
+                            }
+                            break;
+                        case 3:
+                            var selectedDisciplines = db.Discipline.Where(x => x.Name.Contains(Search.Text));
+                            foreach (var user in selectedDisciplines)
+                            {
+                                AddInfoToSearch(user.Name);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void AddInfoToSearch(string SearchingText)
         {
             Button BackButton = new Button();
-            BackButton.Width = 254;
+            BackButton.Width = 304;
             BackButton.Height = 30;
             BackButton.Background = Brushes.Transparent;
             BackButton.BorderThickness = new Thickness(0);
-            BackButton.Click += ClickOnStudent;
+            BackButton.Click += ClickOnLabel;
             BackButton.FontSize = 17;
-            BackButton.Content = " " + StudentName;
+            BackButton.Content = " " + SearchingText;
             BackButton.VerticalAlignment = VerticalAlignment.Center;
             BackButton.HorizontalContentAlignment = HorizontalAlignment.Left;
 
             Border Obolochka = new Border();
             Obolochka.BorderThickness = new Thickness(2);
             Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
-            Obolochka.Width = 250;
+            Obolochka.Width = 300;
             Obolochka.Height = 30;
             Obolochka.CornerRadius = new CornerRadius(6);
             Obolochka.Child = BackButton;
 
-            var ouput = Obolochka;
-            SearchResults.Children.Add(ouput);
+            var output = Obolochka;
+            SearchResults.Children.Add(output);
         }
-        public void ClickOnStudent (object sender, RoutedEventArgs e)
+        private void ClickOnLabel(object sender, RoutedEventArgs e)
         {
-            ActualStudents.Add((sender as Button).Content.ToString());
-            ChekedStudents.Items.Add((sender as Button).Content.ToString());
+            //Here will be a real brutal shit, u know..
         }
+        //End
+
+        //Selector for different kinds of searches
+        private void StudentSearchSelected(object sender, RoutedEventArgs e)
+        {
+            SearchStatus = 1;
+            if (Search.Text == "Введите имя преподавателя" || Search.Text == "Введите дисциплину")
+            {
+                Search.Text = "Введите имя ученика";
+            }
+            else Search.Text = Search.Text + " ";
+            Search.Text = Search.Text.Trim();
+            SwitchToStudentSearch.BorderThickness = new Thickness(2);
+            SwitchToTeacherSearch.BorderThickness = new Thickness(0);
+            SwitchToDisciplineSearch.BorderThickness = new Thickness(0);
+        }
+        private void TeacherSearchSelected(object sender, RoutedEventArgs e)
+        {
+            SearchStatus = 2;
+            if (Search.Text == "Введите имя ученика" || Search.Text == "Введите дисциплину")
+            {
+                Search.Text = "Введите имя преподавателя";
+            }
+            else Search.Text = Search.Text + " ";
+            Search.Text = Search.Text.Trim();
+            SwitchToStudentSearch.BorderThickness = new Thickness(0);
+            SwitchToTeacherSearch.BorderThickness = new Thickness(2);
+            SwitchToDisciplineSearch.BorderThickness = new Thickness(0);
+        }
+        private void DisciplineSearchSelected(object sender, RoutedEventArgs e)
+        {
+            SearchStatus = 3;
+            if (Search.Text == "Введите имя преподавателя" || Search.Text == "Введите имя ученика")
+            {
+                Search.Text = "Введите дисциплину";
+            }
+            else Search.Text = Search.Text + " ";
+            Search.Text = Search.Text.Trim();
+            SwitchToStudentSearch.BorderThickness = new Thickness(0);
+            SwitchToTeacherSearch.BorderThickness = new Thickness(0);
+            SwitchToDisciplineSearch.BorderThickness = new Thickness(2);
+        }
+
     }
 }
