@@ -104,13 +104,6 @@ namespace RedBook.AdminClient
                                 AddInfoToSearch(user.Name);
                             }
                             break;
-                        case 3:
-                            var selectedDisciplines = db.Discipline.Where(x => x.Name.Contains(Search.Text));
-                            foreach (var user in selectedDisciplines)
-                            {
-                                AddInfoToSearch(user.Name);
-                            }
-                            break;
                     }
                 }
             }
@@ -128,7 +121,7 @@ namespace RedBook.AdminClient
             BackButton.Content = " " + SearchingText;
             BackButton.VerticalAlignment = VerticalAlignment.Center;
             BackButton.HorizontalContentAlignment = HorizontalAlignment.Left;
-
+            
             Border Obolochka = new Border();
             Obolochka.BorderThickness = new Thickness(2);
             Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
@@ -140,9 +133,28 @@ namespace RedBook.AdminClient
             var output = Obolochka;
             SearchResults.Children.Add(output);
         }
+
+        private void AddInfoToListOfStudentsToConfig(string TextFromLabel)
+        {
+            TextBlock student = new TextBlock();
+            student.Text = " " + TextFromLabel;
+            student.HorizontalAlignment = HorizontalAlignment.Left;
+            student.FontSize = 17;
+            student.Background = Brushes.Transparent;
+
+            Border Obolochka = new Border();
+            Obolochka.Background = new SolidColorBrush(Color.FromRgb(112, 159, 220));
+            Obolochka.Width = 300;
+            Obolochka.Height = 30;
+            Obolochka.CornerRadius = new CornerRadius(6);
+            Obolochka.Child = student;
+
+            StudentsInCLass.Children.Add(Obolochka);
+        }
+
         private void ClickOnLabel(object sender, RoutedEventArgs e)
         {
-            //Here will be a real brutal shit, u know..
+            AddInfoToListOfStudentsToConfig((sender as Button).Content.ToString());
         }
         //End
 
@@ -150,7 +162,7 @@ namespace RedBook.AdminClient
         private void StudentSearchSelected(object sender, RoutedEventArgs e)
         {
             SearchStatus = 1;
-            if (Search.Text == "Введите имя преподавателя" || Search.Text == "Введите дисциплину")
+            if (Search.Text == "Введите имя преподавателя")
             {
                 Search.Text = "Введите имя ученика";
             }
@@ -158,12 +170,11 @@ namespace RedBook.AdminClient
             Search.Text = Search.Text.Trim();
             SwitchToStudentSearch.BorderThickness = new Thickness(2);
             SwitchToTeacherSearch.BorderThickness = new Thickness(0);
-            SwitchToDisciplineSearch.BorderThickness = new Thickness(0);
         }
         private void TeacherSearchSelected(object sender, RoutedEventArgs e)
         {
             SearchStatus = 2;
-            if (Search.Text == "Введите имя ученика" || Search.Text == "Введите дисциплину")
+            if (Search.Text == "Введите имя ученика")
             {
                 Search.Text = "Введите имя преподавателя";
             }
@@ -171,20 +182,6 @@ namespace RedBook.AdminClient
             Search.Text = Search.Text.Trim();
             SwitchToStudentSearch.BorderThickness = new Thickness(0);
             SwitchToTeacherSearch.BorderThickness = new Thickness(2);
-            SwitchToDisciplineSearch.BorderThickness = new Thickness(0);
-        }
-        private void DisciplineSearchSelected(object sender, RoutedEventArgs e)
-        {
-            SearchStatus = 3;
-            if (Search.Text == "Введите имя преподавателя" || Search.Text == "Введите имя ученика")
-            {
-                Search.Text = "Введите дисциплину";
-            }
-            else Search.Text = Search.Text + " ";
-            Search.Text = Search.Text.Trim();
-            SwitchToStudentSearch.BorderThickness = new Thickness(0);
-            SwitchToTeacherSearch.BorderThickness = new Thickness(0);
-            SwitchToDisciplineSearch.BorderThickness = new Thickness(2);
         }
 
     }

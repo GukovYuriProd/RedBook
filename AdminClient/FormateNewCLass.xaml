@@ -116,7 +116,7 @@
                             </ScrollViewer>
                         </StackPanel>
                         <StackPanel Orientation="Vertical"
-                                    Margin="10,45,0,0">
+                                    Margin="10,37,0,0">
                             <Border Background="#709fdc"
                                     Height="20"
                                     Width="20"
@@ -156,31 +156,26 @@
                                            Panel.ZIndex="0"/>
                                 </Grid>
                             </Border>
-                            <Border Background="#709fdc"
-                                    Height="20"
-                                    Width="20"
-                                    CornerRadius="7"
-                                    x:Name="SwitchToDisciplineSearch"
-                                    BorderBrush="#071739">
-                                <Grid>
-                                    <Button Opacity="0" 
-                                            Click="DisciplineSearchSelected"
-                                            Panel.ZIndex="1"
-                                            ToolTip="Сменить режим на поиск дисциплин"/>
-                                    <TextBlock FontSize="18"
-                                           Text="Д"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                               Margin="0,-5,0,0"
-                                           Panel.ZIndex="0"/>
-                                </Grid>
-                            </Border>
-                            
+
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical"
                                 Margin="15,0">
-                        
+                        <TextBlock FontWeight="Medium"
+                                   FontSize="17"
+                                   Text="Ученики в классе"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,20,0,0"/>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                                      CanContentScroll="True"
+                                      Margin="0,15,0,0">
+                            <StackPanel Orientation="Vertical"
+                                        Height="290"
+                                        Width="310"
+                                        x:Name="StudentsInCLass">
+                            </StackPanel>
+                        </ScrollViewer>
                     </StackPanel>
                 </StackPanel>
             </Grid>
