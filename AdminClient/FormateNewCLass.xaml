@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RedBook.AdminClient"
       mc:Ignorable="d" 
-      d:DesignHeight="420" d:DesignWidth="1020"
+      d:DesignHeight="720" d:DesignWidth="1220"
       Title="FormateNewCLass">
     <Page.Resources>
         <ControlTemplate TargetType="Button" x:Key="ConfigPageBtn">
@@ -36,8 +36,8 @@
         </ControlTemplate>
     </Page.Resources> 
     <Grid>
-        <Border Height="400"
-                Width="1000"
+        <Border Height="700"
+                Width="1200"
                 Background="AliceBlue"
                 CornerRadius="15"
                 Margin="10"
@@ -109,7 +109,7 @@
                                       CanContentScroll="True"
                                       Margin="0,15,0,0">
                                 <StackPanel Orientation="Vertical"
-                                        Height="290"
+                                        Height="580"
                                         Width="310"
                                         x:Name="SearchResults">
                                 </StackPanel>
@@ -165,15 +165,33 @@
                                    FontSize="17"
                                    Text="Ученики в классе"
                                    HorizontalAlignment="Center"
-                                   Margin="0,20,0,0"/>
+                                   Margin="0,45,0,0"/>
 
                         <ScrollViewer VerticalScrollBarVisibility="Visible"
                                       CanContentScroll="True"
                                       Margin="0,15,0,0">
                             <StackPanel Orientation="Vertical"
-                                        Height="290"
+                                        Height="590"
                                         Width="310"
                                         x:Name="StudentsInCLass">
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                                Margin="15,0">
+                        <TextBlock FontWeight="Medium"
+                                   FontSize="17"
+                                   Text="Учителя"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,45,0,0"/>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                                      CanContentScroll="True"
+                                      Margin="0,15,0,0">
+                            <StackPanel Orientation="Vertical"
+                                        Height="560"
+                                        Width="410"
+                                        x:Name="TeachersInCLass">
                             </StackPanel>
                         </ScrollViewer>
                     </StackPanel>

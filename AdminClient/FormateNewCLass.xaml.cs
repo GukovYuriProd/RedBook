@@ -126,7 +126,7 @@ namespace RedBook.AdminClient
             Obolochka.BorderThickness = new Thickness(2);
             Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
             Obolochka.Width = 300;
-            Obolochka.Height = 30;
+            Obolochka.Height = 28;
             Obolochka.CornerRadius = new CornerRadius(6);
             Obolochka.Child = BackButton;
 
@@ -134,27 +134,55 @@ namespace RedBook.AdminClient
             SearchResults.Children.Add(output);
         }
 
-        private void AddInfoToListOfStudentsToConfig(string TextFromLabel)
+        private void AddInfoToListOfStudentsToConfig(string TextFromLabel) 
         {
             TextBlock student = new TextBlock();
-            student.Text = " " + TextFromLabel;
+            student.Text = TextFromLabel;
+            student.HorizontalAlignment = HorizontalAlignment.Left;
+            student.FontSize = 17;
+            student.Background = Brushes.Transparent;
+            
+            Border Obolochka = new Border();
+            Obolochka.BorderThickness = new Thickness(2);
+            Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
+            Obolochka.Width = 300;
+            Obolochka.Height = 28;
+            Obolochka.CornerRadius = new CornerRadius(6);
+            Obolochka.Child = student;
+            StudentsInCLass.Children.Add(Obolochka);
+        }
+
+        private void AddInfoToListOfTeachersToConfig(string TextFromLabel)
+        {
+            TextBlock student = new TextBlock();
+            student.Text = TextFromLabel;
             student.HorizontalAlignment = HorizontalAlignment.Left;
             student.FontSize = 17;
             student.Background = Brushes.Transparent;
 
             Border Obolochka = new Border();
-            Obolochka.Background = new SolidColorBrush(Color.FromRgb(112, 159, 220));
+            Obolochka.BorderThickness = new Thickness(2);
+            Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
             Obolochka.Width = 300;
-            Obolochka.Height = 30;
+            Obolochka.Height = 28;
             Obolochka.CornerRadius = new CornerRadius(6);
             Obolochka.Child = student;
+            Obolochka.HorizontalAlignment = HorizontalAlignment.Left;
+            TeachersInCLass.Children.Add(Obolochka);
+            
 
-            StudentsInCLass.Children.Add(Obolochka);
         }
 
         private void ClickOnLabel(object sender, RoutedEventArgs e)
         {
-            AddInfoToListOfStudentsToConfig((sender as Button).Content.ToString());
+            string LabelInfo = (sender as Button).Content.ToString();
+            if (SearchStatus == 1)
+            {
+                AddInfoToListOfStudentsToConfig(LabelInfo);
+            } else if (SearchStatus == 2)
+            {
+                AddInfoToListOfTeachersToConfig(LabelInfo);
+            }
         }
         //End
 
@@ -183,6 +211,6 @@ namespace RedBook.AdminClient
             SwitchToStudentSearch.BorderThickness = new Thickness(0);
             SwitchToTeacherSearch.BorderThickness = new Thickness(2);
         }
-
+        //End
     }
 }
