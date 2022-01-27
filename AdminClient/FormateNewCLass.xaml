@@ -142,15 +142,15 @@
                                     Width="20"
                                     CornerRadius="7"
                                     Margin="0,0,0,5"
-                                    x:Name="SwitchToTeacherSearch"
+                                    x:Name="SwitchToDisciplineSearch"
                                     BorderBrush="#071739">
                                 <Grid>
                                     <Button Opacity="0" 
-                                            Click="TeacherSearchSelected"
+                                            Click="DisciplineSearchSelected"
                                             Panel.ZIndex="1"
-                                            ToolTip="Сменить режим на поиск преподавателей"/>
+                                            ToolTip="Сменить режим на поиск дисциплин"/>
                                     <TextBlock FontSize="18"
-                                           Text="П"   
+                                           Text="Д"   
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            Panel.ZIndex="0"/>
@@ -181,7 +181,7 @@
                                 Margin="15,0">
                         <TextBlock FontWeight="Medium"
                                    FontSize="17"
-                                   Text="Учителя"
+                                   Text="Дисциплины и учителя"
                                    HorizontalAlignment="Center"
                                    Margin="0,45,0,0"/>
 
@@ -191,7 +191,7 @@
                             <StackPanel Orientation="Vertical"
                                         Height="560"
                                         Width="410"
-                                        x:Name="TeachersInCLass">
+                                        x:Name="DisciplinesInCLass">
                             </StackPanel>
                         </ScrollViewer>
                     </StackPanel>

@@ -58,19 +58,14 @@ namespace RedBook.AdminClient
                         break;
                     case 2:
                         Search.Opacity = 0.7;
-                        Search.Text = "Введите имя преподавателя";
-                        break;
-                    case 3:
-                        Search.Opacity = 0.7;
-                        Search.Text = "Введите дисциплину";
+                        Search.Text = "Введите название дисциплины";
                         break;
                 }
         }
         private void Search_GotFocus(object sender, RoutedEventArgs e)
         {
             if (Search.Text == "Введите имя ученика" ||
-                Search.Text == "Введите имя преподавателя" ||
-                Search.Text == "Введите дисциплину")
+                Search.Text == "Введите название дисциплины")
             {
                 Search.Opacity = 1;
                 Search.Text = "";
@@ -98,10 +93,10 @@ namespace RedBook.AdminClient
                             }
                             break;
                         case 2:
-                            var selectedTeachers = db.Teachers.Where(x => x.Name.Contains(Search.Text));
-                            foreach (var user in selectedTeachers)
+                            var selectedDisciplines = db.Discipline.Where(x => x.Name.Contains(Search.Text));
+                            foreach (var discipline in selectedDisciplines)
                             {
-                                AddInfoToSearch(user.Name);
+                                AddInfoToSearch(discipline.Name);
                             }
                             break;
                     }
@@ -130,35 +125,16 @@ namespace RedBook.AdminClient
             Obolochka.CornerRadius = new CornerRadius(6);
             Obolochka.Child = BackButton;
 
-            var output = Obolochka;
-            SearchResults.Children.Add(output);
+            SearchResults.Children.Add(Obolochka);
         }
 
-        private void AddInfoToListOfStudentsToConfig(string TextFromLabel) 
+        private Border AddInfoToStack(string TextFromLabel)
         {
-            TextBlock student = new TextBlock();
-            student.Text = TextFromLabel;
-            student.HorizontalAlignment = HorizontalAlignment.Left;
-            student.FontSize = 17;
-            student.Background = Brushes.Transparent;
-            
-            Border Obolochka = new Border();
-            Obolochka.BorderThickness = new Thickness(2);
-            Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
-            Obolochka.Width = 300;
-            Obolochka.Height = 28;
-            Obolochka.CornerRadius = new CornerRadius(6);
-            Obolochka.Child = student;
-            StudentsInCLass.Children.Add(Obolochka);
-        }
-
-        private void AddInfoToListOfTeachersToConfig(string TextFromLabel)
-        {
-            TextBlock student = new TextBlock();
-            student.Text = TextFromLabel;
-            student.HorizontalAlignment = HorizontalAlignment.Left;
-            student.FontSize = 17;
-            student.Background = Brushes.Transparent;
+            TextBlock textinborder = new TextBlock();
+            textinborder.Text = TextFromLabel;
+            textinborder.HorizontalAlignment = HorizontalAlignment.Left;
+            textinborder.FontSize = 17;
+            textinborder.Background = Brushes.Transparent;
 
             Border Obolochka = new Border();
             Obolochka.BorderThickness = new Thickness(2);
@@ -166,22 +142,20 @@ namespace RedBook.AdminClient
             Obolochka.Width = 300;
             Obolochka.Height = 28;
             Obolochka.CornerRadius = new CornerRadius(6);
-            Obolochka.Child = student;
+            Obolochka.Child = textinborder;
             Obolochka.HorizontalAlignment = HorizontalAlignment.Left;
-            TeachersInCLass.Children.Add(Obolochka);
-            
-
+            return Obolochka;
         }
 
         private void ClickOnLabel(object sender, RoutedEventArgs e)
         {
-            string LabelInfo = (sender as Button).Content.ToString();
+            Border ElementToAdd = AddInfoToStack((sender as Button).Content.ToString());
             if (SearchStatus == 1)
             {
-                AddInfoToListOfStudentsToConfig(LabelInfo);
+                StudentsInCLass.Children.Add(ElementToAdd);
             } else if (SearchStatus == 2)
             {
-                AddInfoToListOfTeachersToConfig(LabelInfo);
+                DisciplinesInCLass.Children.Add(ElementToAdd);
             }
         }
         //End
@@ -190,26 +164,26 @@ namespace RedBook.AdminClient
         private void StudentSearchSelected(object sender, RoutedEventArgs e)
         {
             SearchStatus = 1;
-            if (Search.Text == "Введите имя преподавателя")
+            if (Search.Text == "Введите название дисциплины")
             {
                 Search.Text = "Введите имя ученика";
             }
             else Search.Text = Search.Text + " ";
             Search.Text = Search.Text.Trim();
             SwitchToStudentSearch.BorderThickness = new Thickness(2);
-            SwitchToTeacherSearch.BorderThickness = new Thickness(0);
+            SwitchToDisciplineSearch.BorderThickness = new Thickness(0);
         }
-        private void TeacherSearchSelected(object sender, RoutedEventArgs e)
+        private void DisciplineSearchSelected(object sender, RoutedEventArgs e)
         {
             SearchStatus = 2;
             if (Search.Text == "Введите имя ученика")
             {
-                Search.Text = "Введите имя преподавателя";
+                Search.Text = "Введите название дисциплины";
             }
             else Search.Text = Search.Text + " ";
             Search.Text = Search.Text.Trim();
             SwitchToStudentSearch.BorderThickness = new Thickness(0);
-            SwitchToTeacherSearch.BorderThickness = new Thickness(2);
+            SwitchToDisciplineSearch.BorderThickness = new Thickness(2);
         }
         //End
     }
