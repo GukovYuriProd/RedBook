@@ -18,6 +18,7 @@ namespace RedBook.AdminClient
 {
     public partial class FormateNewCLass : Page
     {
+        List<string> TeachersFromDB = new List<string>();
         public FormateNewCLass()
         {
             InitializeComponent();
@@ -30,6 +31,11 @@ namespace RedBook.AdminClient
                     levels.Add(classi.Level.ToString());
                 }
                 ClassCheck.ItemsSource = levels;
+                List<Teachers> teachers = db.Teachers.ToList();
+                foreach (var teacher in teachers)
+                {
+                    TeachersFromDB.Add(teacher.Name.ToString());
+                }
             }
         }
 
@@ -116,7 +122,7 @@ namespace RedBook.AdminClient
             BackButton.Content = " " + SearchingText;
             BackButton.VerticalAlignment = VerticalAlignment.Center;
             BackButton.HorizontalContentAlignment = HorizontalAlignment.Left;
-            
+
             Border Obolochka = new Border();
             Obolochka.BorderThickness = new Thickness(2);
             Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
@@ -128,7 +134,7 @@ namespace RedBook.AdminClient
             SearchResults.Children.Add(Obolochka);
         }
 
-        private Border AddInfoToStack(string TextFromLabel)
+        private void AddStudentToStudentStackPanel(string TextFromLabel)
         {
             TextBlock textinborder = new TextBlock();
             textinborder.Text = TextFromLabel;
@@ -144,18 +150,53 @@ namespace RedBook.AdminClient
             Obolochka.CornerRadius = new CornerRadius(6);
             Obolochka.Child = textinborder;
             Obolochka.HorizontalAlignment = HorizontalAlignment.Left;
-            return Obolochka;
+            StudentsInCLass.Children.Add(Obolochka);
+        }
+
+        private void AddDisciplineToDisciplineStackPanel(string TextFromLabel)
+        {
+            TextBlock textinborder = new TextBlock();
+            textinborder.Text = TextFromLabel;
+            textinborder.HorizontalAlignment = HorizontalAlignment.Left;
+            textinborder.FontSize = 17;
+            textinborder.Background = Brushes.Transparent;
+            textinborder.HorizontalAlignment = HorizontalAlignment.Center;
+
+            ComboBox ChooseTeacher = new ComboBox();
+            ChooseTeacher.ItemsSource = TeachersFromDB;
+            ChooseTeacher.Height = 28;
+            ChooseTeacher.Width = 330;
+            ChooseTeacher.FontSize = 17;
+            ChooseTeacher.HorizontalAlignment = HorizontalAlignment.Center;
+            ChooseTeacher.HorizontalContentAlignment = HorizontalAlignment.Center;
+
+            StackPanel Karkas = new StackPanel();
+            Karkas.Orientation = Orientation.Vertical;
+            Karkas.Children.Add(textinborder);
+            Karkas.Children.Add(ChooseTeacher);
+
+            Border Obolochka = new Border();
+            Obolochka.BorderThickness = new Thickness(2);
+            Obolochka.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 159, 220));
+            Obolochka.Width = 360;
+            Obolochka.Height = 58;
+            Obolochka.CornerRadius = new CornerRadius(6);
+            Obolochka.Child = Karkas;
+            Obolochka.HorizontalAlignment = HorizontalAlignment.Left;
+            DisciplinesInCLass.Children.Add(Obolochka);
+
+            //TeachersFromDB здесь все учителя. Это будет source для выпадающего списка
         }
 
         private void ClickOnLabel(object sender, RoutedEventArgs e)
         {
-            Border ElementToAdd = AddInfoToStack((sender as Button).Content.ToString());
             if (SearchStatus == 1)
             {
-                StudentsInCLass.Children.Add(ElementToAdd);
-            } else if (SearchStatus == 2)
+                AddStudentToStudentStackPanel((sender as Button).Content.ToString());
+            }
+            else if (SearchStatus == 2)
             {
-                DisciplinesInCLass.Children.Add(ElementToAdd);
+                AddDisciplineToDisciplineStackPanel((sender as Button).Content.ToString());
             }
         }
         //End
