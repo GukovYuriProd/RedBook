@@ -184,19 +184,39 @@ namespace RedBook.AdminClient
             Obolochka.Child = Karkas;
             Obolochka.HorizontalAlignment = HorizontalAlignment.Left;
             DisciplinesInCLass.Children.Add(Obolochka);
-
-            //TeachersFromDB здесь все учителя. Это будет source для выпадающего списка
         }
-
+        List<string> Students = new List<string>();
+        List<string> Disciplines = new List<string>();
         private void ClickOnLabel(object sender, RoutedEventArgs e)
         {
+            string newone = (sender as Button).Content.ToString();
             if (SearchStatus == 1)
             {
-                AddStudentToStudentStackPanel((sender as Button).Content.ToString());
+                int checker = 0;
+                foreach (var smth in Students)
+                {
+                    if (smth == newone) checker++;
+                }
+                if (checker == 0)
+                {
+                    Students.Add(newone);
+                    AddStudentToStudentStackPanel(newone);
+                }
+                else MessageBox.Show("Такой ученик уже добавлен");
             }
             else if (SearchStatus == 2)
             {
-                AddDisciplineToDisciplineStackPanel((sender as Button).Content.ToString());
+                int checker = 0;
+                foreach (var smth in Disciplines)
+                {
+                    if (smth == newone) checker++;
+                }
+                if (checker == 0)
+                {
+                    Disciplines.Add(newone);
+                    AddDisciplineToDisciplineStackPanel(newone);
+                }
+                else MessageBox.Show("Такая дисциплина уже добавлена");
             }
         }
         //End
@@ -225,6 +245,11 @@ namespace RedBook.AdminClient
             Search.Text = Search.Text.Trim();
             SwitchToStudentSearch.BorderThickness = new Thickness(0);
             SwitchToDisciplineSearch.BorderThickness = new Thickness(2);
+        }
+
+        private void ConfigurateClass_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         //End
     }

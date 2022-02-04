@@ -80,7 +80,8 @@
                         Content="Сформировать класс"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
-                        Margin="10"/>
+                        Margin="10"
+                        Click="ConfigurateClass_Click"/>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Orientation="Vertical"
